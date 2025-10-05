@@ -3119,19 +3119,19 @@
   background-image: url("images/overlay.png"), url("../../images/banner.jpg");
   background-repeat: no-repeat;
   background-position: center 40%;  /* move the image slightly down */
-  background-size: contain;         /* show full image without cropping */
+  background-size: cover;         /* show full image without cropping */
   background-color: #0e0f1a;        /* behind letterboxing */
 
   padding: 2rem 1rem;
   line-height: 1.6;
 }
-
+#banner { background-blend-mode: normal, multiply; }
 /* dark overlay to reduce brightness */
 #banner::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.38);  /* increase to 0.45 if you want darker */
+  background: rgba(0,0,0,0.32);  /* increase to 0.45 if you want darker */
   z-index: 0;
 }
 

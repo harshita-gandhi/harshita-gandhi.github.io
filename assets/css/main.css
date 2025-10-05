@@ -3100,11 +3100,12 @@
   /* show the entire image (no cropping) */
   background-image: url("../../images/banner.jpg");   /* adjust path if needed */
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center 25%;
   background-size: contain;                           /* <- key to show full image */
   background-color: #0e0f1a;                          /* color behind any letterboxing */
   padding: 2rem 1rem;
   line-height: 1.6;
+  margin-top: 3rem;
 }
 
 #banner h2 {

@@ -3137,8 +3137,12 @@
 }
 #banner p {
   color: #d0d0d0;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-top: 1rem;
+  text-align: center;
 }
+
 
 /* phone tweaks */
 @media screen and (max-width: 980px) {

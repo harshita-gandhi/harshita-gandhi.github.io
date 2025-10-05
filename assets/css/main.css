@@ -3270,3 +3270,12 @@
 				}
 
 		}
+
+/* === Custom spacing between header and banner === */
+#header {
+  margin-bottom: 2rem;   /* creates space below header */
+}
+
+#banner {
+  padding-top: 4rem;     /* pushes banner content downward */
+}

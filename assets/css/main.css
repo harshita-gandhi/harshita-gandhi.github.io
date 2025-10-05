@@ -3084,49 +3084,79 @@
 			visibility: visible;
 		}
 
-/* Banner */
+/* ---------- NAV: keep on one line, prevent wrapping ---------- */
+#header nav ul {
+  display: flex;
+  gap: 1.1rem;           /* tweak this smaller if you still see wrapping */
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;   /* centered nav; remove if you prefer right-aligned */
+}
+#header nav ul li { margin-left: 0; }
+#header nav ul li a {
+  white-space: nowrap;       /* keep labels on one line */
+  font-size: 0.98rem;        /* slightly smaller to fit */
+  letter-spacing: 0.03em;
+}
 
-/* Banner — full image visible, centered text, no button */
+@media screen and (max-width: 1280px) {
+  #header nav ul li a { font-size: 0.94rem; }
+}
+@media screen and (max-width: 1100px) {
+  #header nav ul li a { font-size: 0.9rem; }
+}
+
+/* ---------- BANNER: darken image + center text ---------- */
 #banner {
-  /* full viewport minus the top padding you already have on <body> (6em) */
-  min-height: calc(100vh - 6em);
-
-  /* center the text block */
+  position: relative;
+  min-height: calc(100vh - 6em);   /* fill viewport */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 
-  /* show the entire image (no cropping) */
-  background-image: url("../../images/banner.jpg");   /* adjust path if needed */
+  /* background image */
+  background-image: url("images/overlay.png"), url("../../images/banner.jpg");
   background-repeat: no-repeat;
-  background-position: center 30%;
-  background-size: contain;                           /* <- key to show full image */
-  background-color: #0e0f1a;                          /* color behind any letterboxing */
+  background-position: center 40%;  /* move the image slightly down */
+  background-size: contain;         /* show full image without cropping */
+  background-color: #0e0f1a;        /* behind letterboxing */
+
   padding: 2rem 1rem;
   line-height: 1.6;
 }
 
+/* dark overlay to reduce brightness */
+#banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.38);  /* increase to 0.45 if you want darker */
+  z-index: 0;
+}
+
+/* keep your text above the overlay */
+#banner > * { position: relative; z-index: 1; }
+
 #banner h2 {
   color: #fff;
-  font-size: 3.2rem;
+  font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 #banner p {
-  color: #bfbfbf;
-  font-size: 1.2rem;
+  color: #d0d0d0;
+  font-size: 1.15rem;
 }
 
-/* Responsive tweaks */
+/* On phones, you may prefer a filled look even if it crops a bit */
 @media screen and (max-width: 980px) {
-  /* On small screens you may prefer cropping rather than big side bars.
-     If you want *no* cropping everywhere, delete the next three lines. */
-  #banner { background-size: cover; }  /* fill phone screens */
+  #banner { background-size: cover; }
   #banner h2 { font-size: 2.2rem; }
   #banner p  { font-size: 1.05rem; }
 }
+
 
 
 /* Main */

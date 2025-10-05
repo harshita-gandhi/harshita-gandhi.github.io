@@ -3109,7 +3109,7 @@
 /* ---------- BANNER: photo + built-in dark overlay ---------- */
 #banner {
   position: relative;
-  min-height: calc(100vh - 6em);
+  height: 100vh;
 
   display: flex;
   align-items: center;
@@ -3120,12 +3120,14 @@
   /* one background: gradient (darkener) + image */
   background:
     linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
-    url("../../images/banner.jpg") center 40% / cover no-repeat;
+    url("../../images/banner.jpg") center 45% / cover no-repeat;
 
   /* if you want to nudge the image further down, change 40% -> 50% etc. */
   padding: 2rem 1rem;
   line-height: 1.6;
   overflow: hidden;   /* keeps the flex children tidy */
+	margin: 0;  /* prevent browser default spacing */
+  padding: 0; /* remove any offset */
 }
 
 /* banner text */
@@ -3134,6 +3136,7 @@
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 #banner p {
   color: #d0d0d0;

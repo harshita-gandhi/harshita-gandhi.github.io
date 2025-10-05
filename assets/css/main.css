@@ -3086,7 +3086,47 @@
 
 /* Banner */
 
-/* Banner */ body.is-touch #banner { background-attachment: scroll; } #banner { padding: 16em 0 13em 0; background-attachment: fixed; background-image: url("images/overlay.png"), url("../../images/banner.jpg"); background-position: center top; background-size: cover; line-height: 1.75; text-align: center; } #banner:last-child { margin-bottom: 0; } #banner h2 { color: #ffffff; display: inline-block; font-size: 3.5em; line-height: 1.35; margin-bottom: 0.5em; } #banner p { color: #aaa; font-size: 1.5em; margin-bottom: 1.75em; text-transform: uppercase; } @media screen and (max-width: 1280px) { #banner { padding: 14em 0 11em 0; } #banner h2 { font-size: 2.5em; } } @media screen and (max-width: 980px) { #banner { padding: 9em 0 7em 0; } } @media screen and (max-width: 736px) { #banner { padding: 6em 2em 6em 2em; } #banner br { display: none; } #banner h2 { font-size: 2.25em; } #banner p { font-size: 1.25em; } } @media screen and (max-width: 480px) { #banner { padding: 4em 2em 4em 2em; } }
+/* Banner — full image visible, centered text, no button */
+#banner {
+  /* full viewport minus the top padding you already have on <body> (6em) */
+  min-height: calc(100vh - 6em);
+
+  /* center the text block */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  /* show the entire image (no cropping) */
+  background-image: url("../../images/banner.jpg");   /* adjust path if needed */
+  background-repeat: no-repeat;
+  background-position: center 30%;
+  background-size: contain;                           /* <- key to show full image */
+  background-color: #0e0f1a;                          /* color behind any letterboxing */
+  padding: 2rem 1rem;
+  line-height: 1.6;
+}
+
+#banner h2 {
+  color: #fff;
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+#banner p {
+  color: #bfbfbf;
+  font-size: 1.2rem;
+}
+
+/* Responsive tweaks */
+@media screen and (max-width: 980px) {
+  /* On small screens you may prefer cropping rather than big side bars.
+     If you want *no* cropping everywhere, delete the next three lines. */
+  #banner { background-size: cover; }  /* fill phone screens */
+  #banner h2 { font-size: 2.2rem; }
+  #banner p  { font-size: 1.05rem; }
+}
 
 
 /* Main */

@@ -3106,56 +3106,46 @@
   #header nav ul li a { font-size: 0.9rem; }
 }
 
-/* ---------- BANNER: darken image + center text ---------- */
+/* ---------- BANNER: photo + built-in dark overlay ---------- */
 #banner {
   position: relative;
-  min-height: calc(100vh - 6em);   /* fill viewport */
+  min-height: calc(100vh - 6em);
+
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  flex-direction: column;
 
-  /* background image */
-  background-image: url("images/overlay.png"), url("../../images/banner.jpg");
-  background-repeat: no-repeat;
-  background-position: center 40%;  /* move the image slightly down */
-  background-size: cover;         /* show full image without cropping */
-  background-color: #0e0f1a;        /* behind letterboxing */
+  /* one background: gradient (darkener) + image */
+  background:
+    linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
+    url("../../images/banner.jpg") center 40% / cover no-repeat;
 
+  /* if you want to nudge the image further down, change 40% -> 50% etc. */
   padding: 2rem 1rem;
   line-height: 1.6;
-}
-#banner { background-blend-mode: normal, multiply; }
-/* dark overlay to reduce brightness */
-#banner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.32);  /* increase to 0.45 if you want darker */
-  z-index: 0;
+  overflow: hidden;   /* keeps the flex children tidy */
 }
 
-/* keep your text above the overlay */
-#banner > * { position: relative; z-index: 1; }
-
+/* banner text */
 #banner h2 {
   color: #fff;
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
-
 #banner p {
   color: #d0d0d0;
   font-size: 1.15rem;
 }
 
-/* On phones, you may prefer a filled look even if it crops a bit */
+/* phone tweaks */
 @media screen and (max-width: 980px) {
-  #banner { background-size: cover; }
   #banner h2 { font-size: 2.2rem; }
   #banner p  { font-size: 1.05rem; }
 }
+
 
 
 

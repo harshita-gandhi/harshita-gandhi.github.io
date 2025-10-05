@@ -3271,4 +3271,35 @@
 
 		}
 
+/* Keep desktop nav on one line and centered */
+#header #nav ul {
+  display: flex;
+  gap: 1rem;          /* space between items */
+  flex-wrap: nowrap;  /* don't wrap on desktop */
+  align-items: center;
+  justify-content: center;
+}
+#header #nav ul li { margin-left: 0; } /* gap handles spacing */
+#header #nav ul li a {
+  padding: 0 0.5rem;     /* tighter hit area */
+  letter-spacing: 0.05em;
+  font-size: 1rem;
+}
+
+/* Make room for the header overlaying the banner */
+#banner { padding-top: 9rem; }
+
+/* Medium screens: shrink nav slightly to avoid wrap */
+@media screen and (max-width: 1280px) {
+  #header #nav ul li a { font-size: 0.95rem; padding: 0 0.45rem; }
+  #banner { padding-top: 8rem; }
+}
+
+/* Mobile: use Spatial's slide-out menu; add top space for safety */
+@media screen and (max-width: 980px) {
+  #banner { padding-top: 6rem; }
+}
+
+/* Highlight the current page */
+#nav ul li a.active { color: #f32853; font-weight: 700; }
 
